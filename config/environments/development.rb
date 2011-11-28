@@ -27,4 +27,12 @@ SampleApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+
+
+# TEST to precompile assets for Heroku
+	config.assets.precompile += ['blueprint/screen.css']
+
+
+
 end
