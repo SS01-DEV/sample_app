@@ -47,10 +47,12 @@ test:
   username: Steven
   password: Steven
 
+
+#NOTE  prod password changed to WRONG password . . .
 production:
   adapter: postgresql
   encoding: UTF8
   database: sample_app_prod
   pool: 5
   username: Steven
-  password: Steven
+  password: NotSteven
