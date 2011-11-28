@@ -1,15 +1,32 @@
 SampleApp::Application.routes.draw do
 
+  get "users/new"
+
+ # matches the path (ie: /about) to action in Pages.controller
+
+  match '/signup',  :to => 'users#new'
+
+  match '/about',   :to => 'pages#about'
+  match '/contact', :to => 'pages#contact'
+  match '/home',    :to => 'pages#home'
+  match '/help',    :to => 'pages#help'
+
+  match '/index',   :to => 'pages#index'
+
+
+
+
+
+  # this statement is equivalent to:  match '/', :to => 'pages#home'
+  #  and also provides:    root_url => 'http://localhost:3000/'
   root :to => "pages#home"
 
 
-   get "pages/index"
+   # get "pages/index"
+   # get "pages/home"
+   # get "pages/contact"
+   # get "pages/about"
 
-   get "pages/home"
-
-   get "pages/contact"
-
-   get "pages/about"
 
 
 
