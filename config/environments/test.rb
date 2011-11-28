@@ -2,8 +2,14 @@ SampleApp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
 # TEST to precompile assets for Heroku
-	app.assets.stylesheets.precompile += ['blueprint/screen.css']
-	app.assets.stylesheets.precompile += ['blueprint/print.css']
+	#app.assets.stylesheets.precompile += ['blueprint/screen.css']
+	#app.assets.stylesheets.precompile += ['blueprint/print.css']
+
+
+	#config.assets.precompile += ['blueprint/screen.css']
+	#config.assets.precompile += ['blueprint/print.css']
+
+	config.assets.compile = true
 
 
 
