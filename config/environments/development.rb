@@ -11,7 +11,10 @@ SampleApp::Application.configure do
 	#config.assets.precompile += ['blueprint/screen.css']
 	#config.assets.precompile += ['blueprint/print.css']
 
-	config.assets.compile = true
+	#config.assets.compile = true
+
+
+
 
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development

@@ -9,7 +9,9 @@ SampleApp::Application.configure do
 	#config.assets.precompile += ['blueprint/screen.css']
 	#config.assets.precompile += ['blueprint/print.css']
 
-	config.assets.compile = true
+	#config.assets.compile = true
+
+ 
 
 
 
