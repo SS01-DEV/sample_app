@@ -1,6 +1,12 @@
 SampleApp::Application.routes.draw do
 
-  get "users/new"
+	# Listing 6.26 Rails 3 tutorial
+	resources :users
+
+ # Removed: see tutorial 6.3 text beneath Table 6.2
+ # get "users/new"
+
+
 
  # matches the path (ie: /about) to action in Pages.controller
 
