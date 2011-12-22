@@ -5,6 +5,7 @@ gem 'rails', '3.1.1'
 gem 'pg'
 gem 'gravatar_image_tag', '1.0.0'
 gem 'will_paginate', '3.0.2' 
+gem 'uglifier', '1.1.0'
 gem 'jquery-rails', '1.0.18'
   
 
