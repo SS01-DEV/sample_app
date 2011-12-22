@@ -12,13 +12,13 @@ class User < ActiveRecord::Base
 	# see Rails 3 tutorial beneath Listing 6.5
    # for info on 'attr_accessible'
    # -- really good idea to tell Rails which attributes of the model are accessible,
-   #   i.e., which attributes can be modified by outside users
+   #    i.e., which attributes can be modified by outside users
 
 
 
 	# see Rails 3 tutorial Listing 7.2
 	attr_accessor :password
-	attr_accessible :name, :email, :password, :password_confirmation
+	attr_accessible :name, :email, :password, :password_confirmation # ,:admin   #Temp allow set admin 
 
 
 	# see Rails 3 tutorial Listing 6.17
@@ -52,11 +52,11 @@ class User < ActiveRecord::Base
 	# Implement public method for testing password machinery via RSpec
 	# see Rails 3 Tutorial listing 7.7
 
-   # Return true if the user's password matches the submitted password.
-   def has_password?(submitted_password)
-      # Compare encrypted_password with the encrypted version of
-      # submitted_password.
-   end
+##   # Return true if the user's password matches the submitted password.
+##   def has_password?(submitted_password)
+##      # Compare encrypted_password with the encrypted version of
+##      # submitted_password.
+##   end
 
 
    # see Rails 3 Tutorial listing 7.6,  7.10
@@ -65,15 +65,21 @@ class User < ActiveRecord::Base
    end
 
    # see Rails 3 Tutorial listing 7.12
-   #  (returns nil if neither of the two returns are invoked)
+   #   (returns nil if neither of the two returns are invoked)
 	def self.authenticate(email, submitted_password)
 		user = find_by_email(email)
 		return nil if user.nil?
 		return user if user.has_password?(submitted_password)
 	end
 
-	#------------------------------------------------------------------[2]
 
+	# Listing 9.17 Adding an authenticate_with_salt method to the User model
+	def self.authenticate_with_salt(id, cookie_salt)
+		user = find_by_id(id)
+		(user && user.salt == cookie_salt) ? user : nil
+	end
+
+	#------------------------------------------------------------------[2]
 
    private
 
@@ -94,13 +100,7 @@ class User < ActiveRecord::Base
       	Digest::SHA2.hexdigest(string)
       end 
 
-  end
+  #end - NOTE that "private" keyword does NOT have an "END"
 	#=============================================================[1]
-
-
-
-
-
-
 
 end

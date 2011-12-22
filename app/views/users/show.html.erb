@@ -1,11 +1,24 @@
 
-<!-- Listing 7.20 -->
+<!-- Listing 7.20;  7.23; 7.25    -->
 
-	<h1>
-	<%= @user.name %>
-	</h1>
+<table class="profile" summary="Profile information">
+	<tr>
+		<td class="main">
+			<h1>
+            <%= gravatar_for @user %>
+            <%= @user.name %>
+			</h1>
+		</td>
+
+		<td class="sidebar round">
+        <strong>Name:</strong>&nbsp; <%= @user.name %><br />
+        <strong>URL:</strong>&nbsp;&nbsp;&nbsp; <%= link_to user_path(@user), @user %>
+
+        <br /><strong>TEST  id:</strong>&nbsp;&nbsp;&nbsp; <%= @user.id %>
+        <br /><strong>TEST msg:</strong>&nbsp;&nbsp;&nbsp; <%= $msg %>  
+
+		</td>
+	</tr>
+</table>
 
 
-
-<!-- minimal user.show -->
-	Name: <%= @user.name %>,  email: <%= @user.email %>

@@ -1,0 +1,40 @@
+ 	  <header>
+
+		 <!-- in Apllication_helper.rb     -->
+ 	  	 <%= link_to logo, root_path %>
+
+
+ 		 <nav class="round">
+ 		 	 <ul>
+ 				<li><%= link_to "Home", root_path %></li>
+
+
+				<!-- Listing 9.29 Adding a Profile link.  -->
+				<!-- Listing 10.6 Adding a Settings (Edit) link  -->
+				<% if signed_in? %>
+					<li><%= link_to "Users", users_path %></li>    <!-- Listing 10.23   -->
+					<li><%= link_to "Profile", current_user %></li>
+					<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+				<% end %>
+
+ 				<li><%= link_to "Help", help_path %></li>
+ 			
+
+
+			<!-- TEMP QQQR     -->
+ 		<!-- 		 <li><%= link_to "tempSHOW", show_path %></li>     -->
+
+
+ 
+			<!-- Listing 9.26  Changing the layout links for signed-in users.   -->
+			<% if signed_in? %>
+				<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+			<% else %>
+				<li><%= link_to "Sign in", signin_path %></li>
+			<% end %>
+
+
+
+ 			  </ul>
+ 		 </nav>
+ 	 </header>

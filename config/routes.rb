@@ -1,7 +1,21 @@
 SampleApp::Application.routes.draw do
 
-	# Listing 6.26 Rails 3 tutorial
+# SEE:  Rails Guides article "Rails Routing from the Outide In"
+
+
+
+# ??????
+#  get "sessions/new"    # ???     Section 9.1.1 Sessions Controller
+
+
+
+
+
+	# Listing 6.26 Rails 3 tutorial 
 	resources :users
+	resources :sessions, :only => [:new, :create, :destroy] # Section 9.1.1 Sessions Controller
+
+
 
  # Removed: see tutorial 6.3 text beneath Table 6.2
  # get "users/new"
@@ -10,17 +24,26 @@ SampleApp::Application.routes.draw do
 
  # matches the path (ie: /about) to action in Pages.controller
 
-  match '/signup',  :to => 'users#new'
+  match '/signup',  :to => 'users#new'  # this works from HOME page
+
+
+ # TEST QQQR 
+  match '/show',  :to => 'users#show'  
+
+
 
   match '/about',   :to => 'pages#about'
   match '/contact', :to => 'pages#contact'
   match '/home',    :to => 'pages#home'
   match '/help',    :to => 'pages#help'
 
-  match '/index',   :to => 'pages#index'
+  match '/index',   :to => 'pages#index' 
 
 
-
+  # Section 9.1.1 Sessions Controller                                                       
+  match '/signup',  :to => 'users#new'        
+  match '/signin',  :to => 'sessions#new'     
+  match '/signout', :to => 'sessions#destroy' 
 
 
   # this statement is equivalent to:  match '/', :to => 'pages#home'

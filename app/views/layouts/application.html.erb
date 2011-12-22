@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html> 
 
 
 <head>
@@ -14,40 +14,63 @@
   <%= csrf_meta_tag %>
 
 
+
+
+
   <!-- see section 5.1.1   Rails 3 tutorial -->
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
 
+
+	<!-- ################################################################################## -->
+	<!-- Listing 10.39 and preceding text: for effecting user deletion with javascript -->
+	<!-- above no longer works; use following   -->
+	<!-- http://ruby.railstutorial.org/chapters/rails-3-1#top -->
+
+	<!-- old defunct
+	<%= javascript_include_tag :defaults %>
+	-->
+
+	<%= javascript_include_tag "application" %>
+	<%= stylesheet_link_tag "application" %>
+
+	<!-- ################################################################################## -->
+
+
+
+
   <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
   <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
 
-
+ 
   <!-- see section 5.1.1  Rails 3 tutorial  -->
   <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+
+
   <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 
+
 </head>
+
+
 
 <body>
 
   <div class="container">
+	  <%= render 'layouts/header' %>
 
- 	  <header>
- 	  	  <%= image_tag("logo.png", :alt => "Sample App", :class => "round") %>
- 		  <nav class="round">
- 		 	  <ul>
- 				 <li><%= link_to "Home", root_path %></li>
- 				 <li><%= link_to "Help", help_path %></li>
- 				 <li><%= link_to "Sign in", '#' %></li>
- 			  </ul>
- 		  </nav>
- 	  </header>
 
-	  <section class="round">
- 		  <%= yield %>
-	  </section>
+
+   <section class="round">
+      <!-- FLASH - see section 8.3.3  -->
+   	<% flash.each do |key, value| %>
+   		<div class="flash <%= key %>"><%= value %></div>
+   	<% end %>
+
+   	<%= yield %>
+   </section>
 
 
 	  <%= render 'layouts/footer' %>
@@ -59,3 +82,4 @@
 
 </body>
 </html>
+

@@ -10,4 +10,9 @@ module ApplicationHelper
     end
   end
 
+  # Listing 9.27 A helper for the site logo (used in _header.html.erb)
+	def logo
+		image_tag("logo.png", :alt => "Sample App", :class => "round")
+	end
+
 end

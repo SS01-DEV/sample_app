@@ -15,8 +15,14 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+# qqrt
+# is next line necessary ??  . . . apparently not ....
+# require 'will_paginate/array'
+
+
 module SampleApp
   class Application < Rails::Application
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -42,7 +48,7 @@ module SampleApp
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
-    # Configure sensitive parameters which will be filtered from the log file.
+  # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
     # Enable the asset pipeline
